@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div style="position: absolute;left: 50%;top: 50%;width:200px;height:100px;margin-left:-100px;margin-top:-50px;">
+        <button id="btn">test</button>
+    </div>
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //var ApiUrl = "http://10.0.0.29:5644/api/account/regist";
+        //var ApiUrl = "http://10.0.0.29:5644/api/account/login";
+        //var ApiUrl = "http://localhost:33717/api/account/AskLeaved?SessionKey=37d4bff1b880d963fa113b10178c4f47";
+        //var ApiUrl = "http://localhost:33717/api/account/login";
+        //var ApiUrl = "http://localhost:6136/api/SignImageCheck.aspx?dt=2017-10-18";//&id=1
+        //var ApiUrl = "http://localhost:6136/api/Account.aspx";
+        //var ApiUrl = "http://10.0.0.29/api/Account.aspx";
+        //var ApiUrl = "http://localhost:6915/api/Account";
+        var ApiUrl = "http://ai.chinacloudsites.cn/api/FaceSign.aspx/SomeCount";//?sDate=2017/10/31&eDate=2018/10/31&status=0
+        $('#btn').click(function () {
+            $.ajax({
+                type: "GET",
+                url: ApiUrl,
+                contentType: 'application/json',
+                //data: JSON.stringify({
+                //    StudentId: '38',
+                //    StudentName: 'andy',
+                //    ParentName: '奶奶',
+                //    PhoneNum: '15888888889',
+                //    VerifyCode: '1234',
+                //    IDCard: '12341234123412343',
+                //    Relation: '奶奶',
+                //    Password: '1234',//密码加密之后再传过去
+                //    ConfimPass: '1234'//密码加密之后再传过去
+                //}),
+                data: {
+                    sDate: '2017/10/31 00:00:00',
+                    eDate: '2017/10/31 23:00:00',
+                    status: 0,
+                },
+                //data: JSON.stringify({ sDate: '2017/11/8 00:00:00', eDate: '2017/11/9 23:00:00', Des: '测试' }),
+                //data: JSON.stringify({ phone: '123', pw: '123', re: true }),
+                //data: { Login: '1234', Pwd: '1234', },
+                //data: null,
+                success: function (data, status) {
+                    console.log(data);
+                },
+                error: function (e) {
+
+                },
+                complete: function () {
+
+                }
+            });
+        });
+    });
+</script>
